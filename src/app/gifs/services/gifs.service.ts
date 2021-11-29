@@ -19,7 +19,7 @@ get historial(){
 constructor(private http: HttpClient){
 
 this._historial = JSON.parse(localStorage.getItem('historial')!) || [];
-
+this.resultados = JSON.parse(localStorage.getItem('resultados')!) || [];
 // if(localStorage.getItem('historial')){
 //   this._historial = JSON.parse(localStorage.getItem('historial')!);
 // }
@@ -37,6 +37,7 @@ query = query.trim().toLocaleLowerCase();
     }
     this.http.get<SearchGifsResponse>(`https://api.giphy.com/v1/gifs/search?api_key=D9a5i6eBAuxf3DWLujbPWJoMEvxwMNf4&q=${query}&limit=10`).subscribe((resp) => {
       this.resultados = resp.data;
+      localStorage.setItem('resultados', JSON.stringify(resp.data));
     });
 
   }else{
