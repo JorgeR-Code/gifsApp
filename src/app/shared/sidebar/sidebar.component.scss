@@ -1,7 +1,18 @@
 #sidebar{
   height: 100%;
   min-height: 100vh;
-  min-width: 15vw;
+  min-width: 25vw;
   text-align: center;
   align-items: center;
+
+  .gap{
+    gap: 0.3rem;
+
+    a{
+      border-radius: 5px;
+
+    }
+  }
+
+
 }
