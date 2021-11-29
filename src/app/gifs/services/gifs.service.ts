@@ -7,7 +7,6 @@ import { Gif, SearchGifsResponse } from '../interface/gifs.interface';
 })
 export class GifsService {
 
-private api: string = 'D9a5i6eBAuxf3DWLujbPWJoMEvxwMNf4';
 private _historial: string[]=[];
 
 public resultados: Gif[] = [];
@@ -37,7 +36,7 @@ query = query.trim().toLocaleLowerCase();
     }
     this.http.get<SearchGifsResponse>(`https://api.giphy.com/v1/gifs/search?api_key=D9a5i6eBAuxf3DWLujbPWJoMEvxwMNf4&q=${query}&limit=10`).subscribe((resp) => {
       this.resultados = resp.data;
-      localStorage.setItem('resultados', JSON.stringify(resp.data));
+      localStorage.setItem('resultados', JSON.stringify(this.resultados));
     });
 
   }else{
